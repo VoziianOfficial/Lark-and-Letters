@@ -10,7 +10,6 @@
     candidates.set(element,distance);
   });
 
-  // Reveal composed blocks, never individual words or the moving slider panels.
   add('.hero .lesson-title,.hero .cloud-note',10);
   add('main section>.wrap>.sectitle,main section>.wrap>h2,.discover>div');
   add('.window-row>header,.window-row>a,.course-grid>a,.principles .wrap>div>article');
@@ -18,9 +17,7 @@
   add('.index-layout>div,.index-layout>figure,.fac-grid>img,.fac-grid>div>article');
   add('.journal>a,.out-grid>.out-cover,.out-grid>div>article,.format-row>article');
   add('.booking-intro,.contact>div:first-child,.legal-hero>.wrap,.legal-copy>article',12);
-  // A fade on the shared stage preserves swipes, card flips and existing transforms.
   add('.services .carousel,.tutor-row,.guide-shell,.gallery-grid,.review-loop,.before-booking .faq,.contact>form',0);
-  // The invitation already has its own typing animation.
   add('.lesson-invite .wrap>div:last-child',0);
 
   const finish=element=>{
@@ -57,7 +54,6 @@
     }catch{finish(element)}
   };
   const observer=new IntersectionObserver(entries=>{
-    // Only neighbours on the same visual row get a short stagger.
     let rowTop=-Infinity,index=0;
     entries.filter(entry=>entry.isIntersecting)
       .sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top||a.boundingClientRect.left-b.boundingClientRect.left)
@@ -79,7 +75,6 @@
   };
 
   candidates.forEach((distance,element)=>{
-    // Avoid nested entrances, hidden tabs and content above a restored scroll position.
     if([...candidates.keys()].some(parent=>parent!==element&&parent.contains(element)))return;
     if(element.closest('[hidden],[inert],[aria-hidden=true]'))return;
     const rect=element.getBoundingClientRect();
@@ -90,7 +85,6 @@
     else observer.observe(element);
   });
   revealHash();
-  // Keyboard, anchors and form interactions must never wait for an entrance.
   document.addEventListener('focusin',event=>finishRelated(event.target));
   document.addEventListener('pointerdown',event=>finishRelated(event.target),{passive:true});
   window.addEventListener('hashchange',revealHash);
@@ -112,7 +106,6 @@
     [...details.childNodes].forEach(child=>{if(child!==summary)content.append(child)});
     details.append(content);
     const group=details.getAttribute('name');
-    // Keep native semantics, but animate both members of an exclusive group.
     details.removeAttribute('name');
     details.classList.add('motion-details');
     let expanded=details.open;

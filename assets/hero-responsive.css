@@ -1,4 +1,3 @@
-/* The footer wrapper is transparent to the original desktop composition. */
 .hero .hero-footer{display:contents}
 #main .home-show .hero-part{visibility:hidden;transition:opacity 420ms ease;transform:none}
 #main .home-show .hero-part.is-current{visibility:visible;transform:none}
@@ -7,7 +6,6 @@
 #main .home-show.is-changing :is(.hero-part.is-current,.hero-heading.is-current){opacity:0;transition-duration:180ms}
 #main .hero :is(.lesson-title h1,.cloud-note h2){animation:none;clip-path:none}
 
-/* Tablets: an independent visual column and a readable text column. */
 @media(max-width:1199px){
   #main .hero:before{height:clamp(22px,3vw,36px);filter:none}
   #main .hero:after{display:block;height:34px;background:url(clouds.svg) center bottom/auto 34px repeat-x;filter:none;bottom:-1px}
@@ -118,7 +116,6 @@
   #main .hero .scene-switch button[aria-pressed=true]:before{width:24px;background:#79538e}
 }
 
-/* Phones: title, picture stage and full-width note never overlap. */
 @media(max-width:699px){
   #main .hero:after{display:none}
   #main .hero>.scene{

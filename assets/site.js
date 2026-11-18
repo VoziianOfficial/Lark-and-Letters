@@ -61,7 +61,6 @@ document.addEventListener('keydown',e=>{
 nav.addEventListener('click',e=>{if(e.target.closest('a[href]'))menu(false)});
 one('header .brand').addEventListener('click',()=>menu(false));
 const reducing=matchMedia('(prefers-reduced-motion:reduce)').matches;
-// Keep adjacent items on a shared stage; wrapping only repositions offscreen cards.
 function circularSlider(box,viewport,items,{visible=()=>1,autoplay=0,onChange=()=>{}}={}){
  const motion=matchMedia('(prefers-reduced-motion:reduce)');
  let index=0,turning=false,pending=0,animations=[],timer,hovered=false,inView=false,start=null;
@@ -133,7 +132,6 @@ function circularSlider(box,viewport,items,{visible=()=>1,autoplay=0,onChange=()
  document.addEventListener('visibilitychange',schedule);
  motion.addEventListener('change',()=>{animations.forEach(animation=>animation.finish());schedule()});
  new IntersectionObserver(([entry])=>{inView=entry.isIntersecting;schedule()}).observe(box);
- // Finish at the new size, then measure the next movement afresh.
  new ResizeObserver(()=>{if(turning)animations.forEach(animation=>animation.finish());else render()}).observe(viewport);
  render();
  return {shift,refresh:()=>{if(turning)animations.forEach(animation=>animation.finish());else render()}};

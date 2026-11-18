@@ -70,7 +70,6 @@
 #main .lesson-invite .btn:last-child:is(:hover,:focus-visible){background:#fffaf5;color:#493153;border-color:#b7a0b6}
 #main .lesson-invite .btn .ui-icon{width:17px;height:17px}
 
-/* Every character occupies its final place before typing starts. */
 .lesson-invite .type-word{white-space:nowrap}
 .lesson-invite .type-char{position:relative;opacity:0;transition:opacity 100ms ease}
 .lesson-invite .type-char.is-printed{opacity:1}
