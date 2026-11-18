@@ -1,9 +1,13 @@
-/* Anchor the book to the content wrapper, with space below the FAQ. */
-#main .before-booking>.wrap{
+/* Keep the book inside the heading column, at its lower right corner. */
+#main .before-booking>.wrap{padding-bottom:0}
+#main .before-booking>.wrap>.booking-intro{
   position:relative;
-  padding-bottom:clamp(112px,11vw,140px);
+  top:auto;
+  align-self:stretch;
+  min-width:0;
+  padding-bottom:clamp(120px,12vw,150px);
 }
-#main .before-booking>.wrap>.booking-book{
+#main .before-booking .booking-intro>.booking-book{
   position:absolute;
   right:0;
   bottom:0;
@@ -75,7 +79,7 @@
   84%,100%{opacity:0;transform:translateZ(var(--page-depth)) rotateY(-180deg)}
 }
 @media(max-width:750px){
-  #main .before-booking>.wrap{padding-bottom:94px}
-  #main .before-booking>.wrap>.booking-book{width:116px}
+  #main .before-booking>.wrap>.booking-intro{padding-bottom:104px}
+  #main .before-booking .booking-intro>.booking-book{width:116px}
 }
 @media(prefers-reduced-motion:reduce){.booking-book .book-sheet{animation:none;opacity:0}}

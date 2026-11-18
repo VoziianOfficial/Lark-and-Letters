@@ -33,10 +33,10 @@ body .bar .brand img{transition:transform 500ms var(--motion-ease)}
 #main :is(.mentor-grid,.voice-row) a:is(:first-child,:hover,:focus-visible){flex:1}
 #main .principles .turncard{transition:transform 780ms var(--motion-ease)}
 #main .principles .turncard>div{transition:box-shadow 360ms ease}
-#main .teachers .tutor-row>a.teacher{background:transparent;border:0;box-shadow:none;outline:none;transform:none;translate:none;filter:none}
-#main .teachers .tutor-row>a.teacher img{border-color:#fff;box-shadow:0 0 0 0 transparent;transform:none;translate:none;scale:1;filter:none;transition:box-shadow 360ms var(--motion-ease),border-color 360ms var(--motion-ease)}
-@media(hover:hover){#main .teachers .tutor-row>a.teacher:hover img{box-shadow:0 0 0 3px #d5c0e5}}
-#main .teachers .tutor-row>a.teacher:focus-visible img{box-shadow:0 0 0 3px #8757ab}
+#main .teachers .tutor-row a.teacher{background:transparent;border:0;box-shadow:none;outline:none;transform:none;translate:none;filter:none}
+#main .teachers .tutor-row a.teacher img{border-color:#fff;box-shadow:0 0 0 0 transparent;transform:none;translate:none;scale:1;filter:none;transition:box-shadow 360ms var(--motion-ease),border-color 360ms var(--motion-ease)}
+@media(hover:hover){#main .teachers .tutor-row a.teacher:hover img{box-shadow:0 0 0 3px #d5c0e5}}
+#main .teachers .tutor-row a.teacher:focus-visible img{box-shadow:0 0 0 3px #8757ab}
 #main .index-layout .image-layers img{transition:opacity 520ms var(--motion-ease)}
 #main .subjectindex .index-layout a{color:#775989;background:transparent;box-shadow:none;transform:none;translate:none;filter:none;transition:color 360ms var(--motion-ease),outline-color 220ms ease}
 #main .subjectindex .index-layout a:is(:hover,:focus-visible,.chosen){color:#674778;background:transparent;box-shadow:none;transform:none;translate:none;filter:none}
@@ -97,3 +97,18 @@ body .foot a:not(.brand):is(:hover,:focus-visible){text-decoration-color:current
   html{scroll-behavior:auto}
   *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
 }
+
+/* Every slider moves adjacent panels in the same direction, including at wrap. */
+#main .circular-slider{touch-action:pan-y}
+#main .rotator.circular-slider{display:block}
+#main .loop-viewport{--loop-visible:1;--loop-gap:28px;display:grid;grid-template-columns:minmax(0,1fr);align-items:stretch;gap:0;overflow:hidden;overflow:clip;min-width:0;touch-action:pan-y;isolation:isolate}
+#main .loop-viewport>.loop-item{display:block;grid-area:1/1;align-self:stretch;min-width:0;width:calc((100% - (var(--loop-visible) - 1) * var(--loop-gap)) / var(--loop-visible));opacity:1;visibility:visible;animation:none;transition:none}
+#main .loop-viewport>.loop-item[aria-hidden=true]{pointer-events:none}
+#main .services .loop-viewport>.slide{display:grid;align-items:center;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:35px}
+#main .rotator .loop-viewport{padding-block:18px;margin-block:-18px}
+#main .rotator .loop-viewport>a{text-decoration:none;text-align:center}
+#main .gallery-grid .loop-item{margin:0;transform:none;box-shadow:0 3px 12px #4429421c}
+#main .gallery-grid .loop-item.featured-frame{transform:none;box-shadow:0 5px 16px #44294228}
+#main .gallery-grid .cyclebtn{top:45%}
+@media(max-width:920px){#main .loop-viewport{--loop-gap:15px}}
+@media(max-width:680px){#main .services .loop-viewport>.slide{grid-template-columns:minmax(0,1fr);gap:20px}}

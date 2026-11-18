@@ -22,7 +22,6 @@
  let changing = false;
  let pending = null;
  const imagesReady=Promise.all(parts.map(part=>typeof part.decode==='function'?part.decode().catch(()=>{}):Promise.resolve()));
- const delay=duration=>new Promise(resolve=>setTimeout(resolve,duration));
 
  function commit(index) {
   active = index;
@@ -37,35 +36,54 @@
   buttons.forEach((button,i) => button.setAttribute('aria-pressed',String(active === i)));
  }
  async function select(index) {
-  const next=(index+titles.length)%titles.length;
-  if(changing){pending=next;return}
+  const next=((index%titles.length)+titles.length)%titles.length;
+  const direction=index===active-1?-1:index===active+1?1:((next-active+titles.length)%titles.length<=titles.length/2?1:-1);
+  if(changing){pending=index;return}
   if(next===active){schedule();return}
   changing=true;
   clearTimeout(timer);
   await imagesReady;
-  if(!motion.matches){hero.classList.add('is-changing');await delay(180)}
-  commit(pending??next);
-  pending=null;
-  if(!motion.matches)await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
-  hero.classList.remove('is-changing');
-  if(!motion.matches)await delay(420);
-  changing=false;
-  if(pending!==null&&pending!==active){const queued=pending;pending=null;select(queued)}
-  else{pending=null;schedule()}
+  const outgoing=[...parts.filter(part=>Number(part.dataset.scene)===active),headings[active]];
+  const incoming=[...parts.filter(part=>Number(part.dataset.scene)===next),headings[next]];
+  const animations=[];
+  try{
+   commit(next);
+   if(!motion.matches){
+    const distance=Math.min(hero.clientWidth*.18,220);
+    for(const [layers,entering] of [[outgoing,false],[incoming,true]]){
+     for(const layer of layers){
+      layer.style.visibility='visible';
+      animations.push(layer.animate(entering?
+       [{translate:direction*distance+'px 0',opacity:0},{translate:'0px 0',opacity:1}]:
+       [{translate:'0px 0',opacity:1},{translate:-direction*distance+'px 0',opacity:0}],
+       {duration:720,easing:'cubic-bezier(.22,.68,.18,1)',fill:'forwards'}));
+     }
+    }
+    await Promise.all(animations.map(animation=>animation.finished));
+   }
+  }finally{
+   [...outgoing,...incoming].forEach(layer=>layer.style.visibility='');
+   animations.forEach(animation=>animation.cancel());
+   changing=false;
+   if(pending!==null){const queued=pending;pending=null;select(queued)}else schedule();
+  }
  }
  function schedule() {
   clearTimeout(timer);
   if (inView && !changing && !hovered && !hero.contains(document.activeElement) && !motion.matches && !document.hidden) timer = setTimeout(() => select(active + 1), 5500);
  }
  buttons.forEach((button,i) => button.addEventListener('click', () => select(i)));
- hero.addEventListener('touchstart', e => {start = e.touches[0]}, {passive:true});
+ hero.tabIndex=0;
+ hero.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();select(active+(e.key==='ArrowLeft'?-1:1))}});
+ hero.addEventListener('touchstart', e => {start = e.touches.length===1?e.touches[0]:null;clearTimeout(timer)}, {passive:true});
  hero.addEventListener('touchend', e => {
   if (!start) return;
   const dx = e.changedTouches[0].clientX - start.clientX;
   const dy = e.changedTouches[0].clientY - start.clientY;
   if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) select(active + (dx < 0 ? 1 : -1));
-  start = null;
+  start = null;schedule();
  }, {passive:true});
+ hero.addEventListener('touchcancel',()=>{start=null;schedule()},{passive:true});
  new IntersectionObserver(([entry]) => {inView = entry.isIntersecting; schedule()}).observe(hero);
  document.addEventListener('visibilitychange',schedule);
  hero.addEventListener('focusin',()=>clearTimeout(timer));
