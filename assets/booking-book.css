@@ -1,0 +1,81 @@
+/* Anchor the book to the content wrapper, with space below the FAQ. */
+#main .before-booking>.wrap{
+  position:relative;
+  padding-bottom:clamp(112px,11vw,140px);
+}
+#main .before-booking>.wrap>.booking-book{
+  position:absolute;
+  right:0;
+  bottom:0;
+  width:clamp(130px,14vw,190px);
+  margin:0;
+  padding:0;
+  line-height:0;
+  pointer-events:none;
+  user-select:none;
+}
+.booking-book .book-stage{
+  position:relative;
+  width:100%;
+  aspect-ratio:3/2;
+  perspective:700px;
+  transform:rotate(-5deg);
+  transform-style:preserve-3d;
+}
+#main .booking-book .book-base{
+  display:block;
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  filter:none;
+  transform:none;
+  translate:none;
+  box-shadow:none;
+}
+.booking-book .book-sheet{
+  position:absolute;
+  left:50%;
+  top:10.8%;
+  width:40.6%;
+  height:79%;
+  transform-origin:0 50%;
+  transform-style:preserve-3d;
+  opacity:0;
+  animation:real-book-turn 8s cubic-bezier(.35,.05,.2,1) infinite;
+  animation-play-state:paused;
+}
+.booking-book .book-sheet-1{--page-depth:1.2px;z-index:3}
+.booking-book .book-sheet-2{--page-depth:.8px;z-index:2;animation-delay:240ms}
+.booking-book .book-sheet-3{--page-depth:.4px;z-index:1;animation-delay:480ms}
+.booking-book .book-side{
+  position:absolute;
+  inset:0;
+  backface-visibility:hidden;
+  clip-path:polygon(0 5%,15% 1%,45% 0,74% 0,100% 3%,100% 98%,65% 97%,30% 97%,0 100%);
+  /* A matching paper texture from the real photographed right-hand page. */
+  background:#f5ead3 url(booking-book-real.webp) 84.175% 51.4%/246.3% 126.58% no-repeat;
+}
+.booking-book .book-side:after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,#8b6e482b,transparent 17%,#fff9e71a 56%,#92724b18);
+}
+.booking-book .book-side-back{transform:rotateY(180deg)}
+.booking-book .book-side-back:after{background:linear-gradient(90deg,#745c3d20,#fffbec38 42%,transparent 78%)}
+.booking-book.book-visible .book-sheet{animation-play-state:running}
+@keyframes real-book-turn{
+  0%,14%{opacity:0;transform:translateZ(var(--page-depth)) rotateY(0)}
+  18%{opacity:1;transform:translateZ(var(--page-depth)) rotateY(-2deg)}
+  38%{opacity:1;transform:translateZ(var(--page-depth)) rotateY(-76deg) rotateZ(-1deg)}
+  57%{opacity:1;transform:translateZ(var(--page-depth)) rotateY(-154deg)}
+  72%{opacity:1;transform:translateZ(var(--page-depth)) rotateY(-178deg)}
+  84%,100%{opacity:0;transform:translateZ(var(--page-depth)) rotateY(-180deg)}
+}
+@media(max-width:750px){
+  #main .before-booking>.wrap{padding-bottom:94px}
+  #main .before-booking>.wrap>.booking-book{width:116px}
+}
+@media(prefers-reduced-motion:reduce){.booking-book .book-sheet{animation:none;opacity:0}}

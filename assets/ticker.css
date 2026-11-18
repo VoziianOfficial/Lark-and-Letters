@@ -1,0 +1,29 @@
+.ticker .ticker-icon{
+  display:block;
+  flex:0 0 54px;
+  width:54px;
+  height:54px;
+  object-fit:contain;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  filter:none;
+  transform:none;
+}
+.ticker span:nth-child(n){gap:14px}
+.ticker span:after{
+  content:'';
+  display:block;
+  flex:0 0 4px;
+  width:4px;
+  height:4px;
+  margin-left:22px;
+  border-radius:50%;
+  background:#b59ac0;
+}
+@media(max-width:680px){
+  .ticker .ticker-icon{width:46px;height:46px;flex-basis:46px}
+  .ticker span:nth-child(n){gap:11px;padding-inline:16px}
+  .ticker span:after{margin-left:16px}
+}

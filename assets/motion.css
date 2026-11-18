@@ -1,0 +1,99 @@
+:root{--motion-ease:cubic-bezier(.22,.68,.18,1);--motion-fast:280ms;--motion-panel:440ms}
+
+/* Explicit properties keep state changes smooth without animating layout. */
+body :is(a,button,input,select,textarea,summary,[role=button]),
+body :is(.card-arrow,.go,.activity-medal,.faq-icon,.subject-trigger,.legal-copy article,.materials article,.gallery-grid figure,.class-card){
+  transition:color var(--motion-fast) var(--motion-ease),background-color var(--motion-fast) var(--motion-ease),border-color var(--motion-fast) var(--motion-ease),box-shadow 360ms var(--motion-ease),outline-color 220ms ease,transform 420ms var(--motion-ease),translate 420ms var(--motion-ease),scale 420ms var(--motion-ease),filter 420ms var(--motion-ease),opacity 360ms ease;
+}
+body :is(a,button,input,select,textarea,summary,[tabindex]){outline:3px solid transparent;outline-offset:4px}
+body :is(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:3px solid #9667ae;outline-offset:4px}
+#main #request-form :is(input,textarea,select):focus{outline:3px solid #9667ae;outline-offset:4px}
+#main :is(h1,h2,h3,p,li,small,strong,b,label,figcaption){text-shadow:none}
+#main :is(a,button,summary,[role=button]) :is(h1,h2,h3,p,li,small,strong,b,label,figcaption){transition:color var(--motion-fast) var(--motion-ease)}
+body .bar .brand img{transition:transform 500ms var(--motion-ease)}
+
+/* Small surface movement; icons and text stay anchored inside their control. */
+#main :is(.card,.course-tile,.syllabus-row a,.plans-mini a,.window-row a):is(:hover,:focus-visible){transform:translateY(-2px)}
+#main .journal a:is(:hover,:focus-visible){transform:translateY(-3px)}
+#main :is(.card-arrow,.go,.syllabus-row i,.activity-medal,.ui-icon){translate:none}
+#main .journal a:hover i{transform:none}
+#main .steps button.chosen,#main .out-grid article.chosen{transform:none}
+#main :is(.kit-layout li,.principles article,.legal-copy article,.format-row article,.materials article):hover{transform:none}
+#main .faq summary:is(:hover,:focus-visible){box-shadow:none;transform:none}
+#main :is(.controls button,.cyclebtn):is(:hover,:focus-visible){scale:1;translate:none}
+#main :is(.services,.teachers,.reviews-section) :is(.controls button,.cyclebtn){background:var(--control-fill)}
+#main :is(.services,.teachers,.reviews-section) :is(.controls button,.cyclebtn):is(:hover,:focus-visible){background:#654577}
+#main :is(.window-row,.syllabus-row) a:hover :is(.card-arrow,i){translate:none}
+#main :is(.window-row,.exhibit-row,.project-rail) a img{transition:scale 650ms var(--motion-ease),transform 650ms var(--motion-ease),filter 420ms ease}
+#main .window-row a:hover img,#main .exhibit-row a:hover img{scale:1.025}
+#main .project-rail a:hover img{transform:scale(1.025)}
+#main :is(.petal,.event-layout)>img{transition:transform 650ms var(--motion-ease),filter 420ms ease}
+#main .fac-grid>.space-photo{transition:rotate 650ms var(--motion-ease),filter 420ms ease}
+#main :is(.mentor-grid,.voice-row) a{flex:1;transition:transform 420ms var(--motion-ease),box-shadow 360ms var(--motion-ease)}
+#main :is(.mentor-grid,.voice-row) a:is(:first-child,:hover,:focus-visible){flex:1}
+#main .principles .turncard{transition:transform 780ms var(--motion-ease)}
+#main .principles .turncard>div{transition:box-shadow 360ms ease}
+#main .teachers .tutor-row>a.teacher{background:transparent;border:0;box-shadow:none;outline:none;transform:none;translate:none;filter:none}
+#main .teachers .tutor-row>a.teacher img{border-color:#fff;box-shadow:0 0 0 0 transparent;transform:none;translate:none;scale:1;filter:none;transition:box-shadow 360ms var(--motion-ease),border-color 360ms var(--motion-ease)}
+@media(hover:hover){#main .teachers .tutor-row>a.teacher:hover img{box-shadow:0 0 0 3px #d5c0e5}}
+#main .teachers .tutor-row>a.teacher:focus-visible img{box-shadow:0 0 0 3px #8757ab}
+#main .index-layout .image-layers img{transition:opacity 520ms var(--motion-ease)}
+#main .subjectindex .index-layout a{color:#775989;background:transparent;box-shadow:none;transform:none;translate:none;filter:none;transition:color 360ms var(--motion-ease),outline-color 220ms ease}
+#main .subjectindex .index-layout a:is(:hover,:focus-visible,.chosen){color:#674778;background:transparent;box-shadow:none;transform:none;translate:none;filter:none}
+#main .film img{transition:transform 700ms var(--motion-ease),opacity 520ms ease}
+.ink-reveal,.seen{clip-path:none;animation:soft-reveal 650ms var(--motion-ease) both}
+@keyframes soft-reveal{from{opacity:0}to{opacity:1}}
+
+/* Menus remain rendered while fading out, then become non-interactive. */
+.bar .subnav:after{content:'';position:absolute;top:100%;left:0;right:0;height:14px}
+.bar .sub-list{pointer-events:none;transition:opacity 300ms ease,transform var(--motion-panel) var(--motion-ease),visibility 0s var(--motion-panel)}
+.bar .subnav.expanded .sub-list{pointer-events:auto;transition-delay:0s}
+.bar .toggle{position:relative;width:42px;height:38px;padding:0;flex-shrink:0}
+body .bar .toggle .ui-icon{position:absolute;inset:0;margin:auto;display:block;opacity:0;transform:rotate(-35deg) scale(.85);transition:opacity 220ms ease,transform 360ms var(--motion-ease)}
+body .bar .toggle[aria-expanded=false] .icon-menu,body .bar .toggle[aria-expanded=true] .icon-close{opacity:1;transform:none}
+body .bar .toggle[aria-expanded=true] .icon-menu{display:block;opacity:0;transform:rotate(35deg) scale(.85)}
+@media(max-width:920px){
+  body .bar nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);transition:opacity 300ms ease,transform var(--motion-panel) var(--motion-ease),visibility 0s var(--motion-panel)}
+  body .bar nav.open{display:grid;opacity:1;visibility:visible;pointer-events:auto;transform:none;transition-delay:0s}
+}
+@media(max-width:680px){body .bar nav{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* Height is animated in JS, including closing and interrupted transitions. */
+.faq{overflow-anchor:none}
+.faq details{transition:border-color var(--motion-fast) ease,box-shadow 360ms ease}
+.faq .faq-content{display:flow-root;opacity:1;transition:opacity 300ms ease}
+.faq .motion-details[data-expanded=false] .faq-content{opacity:0}
+#main .faq .motion-details[data-expanded=false]{border-color:#e2d2ea}
+#main .faq .motion-details[data-expanded=true]{border-color:#e6ac83}
+#main .faq .motion-details .faq-icon{transition:background-color 320ms ease,color 320ms ease,box-shadow 320ms ease}
+#main .faq .motion-details[data-expanded=false] .faq-icon{background:#eedfff;color:#684286}
+#main .faq .motion-details[data-expanded=true] .faq-icon{background:#ffb990;color:#543453}
+#main .faq .motion-details summary:is(:hover,:focus-visible) .faq-icon{background:#ffdfbf}
+#main .faq .motion-details .icon-vertical{display:block;opacity:1;transform:scaleY(1);transform-origin:12px 12px;transition:opacity 240ms ease,transform 320ms var(--motion-ease)}
+#main .faq .motion-details[data-expanded=true] .icon-vertical{opacity:0;transform:scaleY(0)}
+
+/* Reserve the largest panel's space and crossfade content in the same cell. */
+.fade-carousel .slides{display:grid}
+.fade-carousel .slide{display:block;grid-area:1/1;opacity:0;visibility:hidden;pointer-events:none;animation:none;transform:none;transition:opacity 480ms ease,visibility 0s 480ms}
+.fade-carousel .slide.active{display:block;opacity:1;visibility:visible;pointer-events:auto;animation:none;transition-delay:0s}
+#main .guide-content.is-ready{align-items:stretch}
+#main .guide-content.is-ready article{display:grid;grid-area:1/1;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 480ms ease,visibility 0s 480ms}
+#main .guide-content.is-ready article.is-active{opacity:1;visibility:visible;pointer-events:auto;transition-delay:0s}
+#main .rotator .incoming{animation:none}
+#main .step-note{display:grid}
+#main .step-note .step-copy{grid-area:1/1;opacity:0;visibility:hidden;transition:opacity 420ms ease,visibility 0s 420ms}
+#main .step-note .step-copy.is-current{opacity:1;visibility:visible;transition-delay:0s}
+.legal-nav a{border-left:4px solid transparent;transition:background-color 280ms ease,color 280ms ease,border-color 280ms ease,box-shadow 360ms ease}
+body .foot a:not(.brand){text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px;transition:color 280ms ease,text-decoration-color 280ms ease}
+body .foot a:not(.brand):is(:hover,:focus-visible){text-decoration-color:currentColor}
+#request-form [role=status]{min-height:1.55em}
+.home-show{transition:background-color 700ms ease}
+#main .home-show .hero-part{transition:opacity 650ms ease,transform 750ms var(--motion-ease)}
+.home-show .lesson-title h1{display:grid}
+.home-show .hero-heading{grid-area:1/1;opacity:0;visibility:hidden;transition:opacity 600ms ease,visibility 0s 600ms}
+.home-show .hero-heading.is-current{opacity:1;visibility:visible;transition-delay:0s}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+}

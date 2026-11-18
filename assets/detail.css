@@ -1,13 +1,13 @@
 .hero .wrap.scene .cloud-note{left:clamp(16px,3.4vw,52px);text-align:left}.cloud-note h2,.cloud-note p{text-align:left}
-.services{--motif:url(motif-pencils.svg);--motion:drift-pencil}.ideas{--motif:url(motif-notepad.svg);--motion:tilt-page}.gallery{--motif:url(motif-clips.svg);--motion:swing-clips}.reviews-section{--motif:url(motif-letters.svg);--motion:glide-letter}.outcomes{--motif:url(motif-geometry.svg);--motion:turn-ruler}
-:is(.services,.ideas,.gallery,.reviews-section,.outcomes):before,:is(.services,.ideas,.gallery,.reviews-section,.outcomes):after{background-image:var(--motif);height:80px;top:19%;animation-name:var(--motion);animation-duration:7s;opacity:.8}
+.services{--motif:url(stationery-pencils-real.webp);--motion:drift-pencil}.ideas{--motif:url(stationery-notepad-real.webp);--motion:tilt-page}.gallery{--motif:url(stationery-clips-real.webp);--motion:swing-clips}.reviews-section{--motif:url(stationery-envelope-real.webp);--motion:glide-letter}.outcomes{--motif:url(stationery-notebook-photo.webp);--motion:tilt-page}
+:is(.services,.ideas,.gallery,.reviews-section,.outcomes):before,:is(.services,.ideas,.gallery,.reviews-section,.outcomes):after{background-image:var(--motif);width:clamp(68px,8vw,125px);height:clamp(105px,10vw,160px);top:15%;animation-name:var(--motion);animation-duration:10s;opacity:1}
 :is(.services,.ideas,.gallery,.reviews-section,.outcomes):after{top:auto;bottom:11%;rotate:15deg}
 @keyframes drift-pencil{to{translate:4px -11px;rotate:5deg}}@keyframes tilt-page{to{rotate:-10deg;translate:0 3px}}@keyframes swing-clips{to{rotate:15deg}}@keyframes glide-letter{to{translate:13px -4px;rotate:-5deg}}@keyframes turn-ruler{to{rotate:-13deg;translate:2px 4px}}
 .window-row a{display:grid;grid-template-rows:auto 1fr;min-height:0;background:#fffaf5;border:1px solid #e4d7de;box-shadow:0 4px 0 #decedf}.window-row a img{position:static;z-index:auto;width:100%;height:clamp(145px,16vw,226px);object-fit:cover}.window-row a>div{position:relative;align-self:stretch;width:100%;background:transparent;color:#43324d;padding:14px 45px 15px 14px}.window-row a h3{color:#43324d}.window-row a p{color:#65536a;font-size:14px;margin:6px 0 0}.card-arrow,.go,.syllabus-row i{display:inline-grid;place-items:center;width:28px;height:28px;background:#eddef6;color:#57366a;border-radius:50%;box-shadow:0 2px 0 #cbb6d5;font:700 16px/1 sans-serif}.card-arrow{position:absolute;right:10px;top:15px}.window-row a:hover .card-arrow,.syllabus-row a:hover i{translate:2px -2px;background:#ffe2a4}.controls button,.rotator .cyclebtn{border:1px solid #cbb2dc;background:#f3e6fc;color:#64427b;box-shadow:0 3px 0 #c6add7}.gallery-grid.rotator{padding-inline:46px;touch-action:pan-y}.gallery-grid.rotator .cyclebtn{display:block;z-index:2}.gallery-grid.rotator img{aspect-ratio:1.3;object-fit:cover;width:100%}.gallery-grid .incoming{animation:appear .32s ease}.gallery-grid figcaption{font:600 18px SchoolHead}
 .price{display:grid;text-align:right;line-height:1}.price b{font:800 40px/1 SchoolHead}.price small{font-size:13px;margin-top:4px}.format-row article:nth-child(2) .price b{color:#ffd788}.goal-photo{width:100%;height:clamp(170px,19vw,275px);object-fit:cover;border-radius:24px}
 #contact #request-form{border:1px solid #d3c0d9;border-top:5px solid #926da7;border-radius:24px;background:#fffaf4;box-shadow:0 5px 0 #d4bfdc,0 14px 35px #52345f12}#request-form .form-title{padding-bottom:11px;border-bottom:1px solid #e5d6e4}#request-form .form-title span{background:#f8dba6;color:#55445b;rotate:-4deg}#request-form :is(input:not([type=checkbox]),select,textarea){background:#fffdff;border:1px solid #d7cadb;border-radius:11px;box-shadow:0 2px 0 #eadddf;font:inherit;font-size:15px}#request-form select{appearance:none;background:#fffdff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m3 6 5 5 5-5' fill='none' stroke='%23765588' stroke-width='2'/%3E%3C/svg%3E") right 13px center/14px no-repeat;padding-right:35px}#request-form button{border-radius:14px;background:#614278}#request-form label:focus-within{color:#75438a}
 .legal-page .legal-hero{position:relative;isolation:isolate;overflow:hidden;text-align:left;border:0;box-shadow:none;background:#f4ebfa;padding:clamp(32px,5vw,74px) 0}.legal-page .legal-terms{background:#fff1d9}.legal-page .legal-cookies{background:#edf2df}.legal-page .legal-hero .wrap{position:relative;max-width:1050px;width:88%;border:0;background:none;box-shadow:none;border-radius:0;padding:0 25% 0 0}.legal-page .legal-hero .wrap:before,.legal-page .legal-hero .wrap:after{display:none}.legal-hero:after{content:'';position:absolute;z-index:-1;right:6%;top:6%;width:32%;height:88%;background:url(legal-book.svg) center/contain no-repeat}.legal-page .legal-hero h1{font:700 clamp(42px,5.6vw,80px)/1.02 Neuton,Georgia,serif;color:#412e49;margin:10px 0}.legal-page .legal-hero p{max-width:510px;color:#59485f}.legal-hero a{color:#735789}
-@media(hover:hover) and (prefers-reduced-motion:no-preference){main :is(p,li,figcaption,label,small,strong,h1,h2,h3,a,button,summary,svg,img):hover{filter:saturate(1.13);translate:0 -1px}.window-row a:hover,.format-row article:hover{transform:translateY(-3px)}}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.window-row a:hover,.format-row article:hover{transform:translateY(-3px)}}
 @media(max-width:850px){.guide-content article:not([hidden]){grid-template-columns:1.25fr 1fr}.goal-photo{height:175px}}
 @media(max-width:600px){.hero .wrap.scene .cloud-note{left:0}.window-row a{grid-template-columns:35% 1fr;grid-template-rows:auto;align-items:center}.window-row a img{height:122px}.window-row a>div{align-self:center}.gallery-grid.rotator{padding-inline:35px}.guide-content article:not([hidden]){grid-template-columns:1fr}.goal-photo{height:180px}.legal-page .legal-hero .wrap{width:91%;padding-right:16%}.legal-hero:after{right:-9%;width:30%;opacity:.42}.legal-page .legal-hero p{font-size:15px}}
 :root{--seafoam:#b6e1cd;--apricot:#ffc799;--iris:#d1b6e9}.syllabus-row a{transition:background-color .24s,box-shadow .24s,transform .24s}.syllabus-row a:is(:hover,:focus-visible){background:var(--seafoam);box-shadow:0 5px 0 #87bba2;transform:translateY(-4px)}.syllabus-row a:nth-child(2):is(:hover,:focus-visible){background:var(--apricot);color:#47303c;box-shadow:0 5px 0 #d59672}.syllabus-row a:nth-child(2):is(:hover,:focus-visible) h3{color:#47303c}.syllabus-row a:nth-child(3):is(:hover,:focus-visible){background:var(--iris);box-shadow:0 5px 0 #a78bc1}
@@ -26,7 +26,7 @@
 :where(.bar,.sub-list,main,footer,.policy) :is(a,button,summary):focus-visible{outline:3px solid #9667ae;outline-offset:3px}
 .card-arrow,.go,.syllabus-row i,.faq summary:after,.controls button,.rotator .cyclebtn,.guide-content li:before,.format-row li:before{display:inline-grid;place-items:center;vertical-align:middle;text-align:center;line-height:1;font-style:normal;padding:0;flex-shrink:0}
 .faq summary:after,.syllabus-row i{width:29px;height:29px}.faq summary{gap:12px}.journal a>div>b{font:600 28px/1 SchoolHead;align-items:center;justify-content:center}.journal i{align-self:center}.lesson-invite .btn span{display:inline-grid;place-items:center;line-height:1;vertical-align:middle}.sectitle i{align-items:center}.sectitle i:before,.sectitle i:after{align-self:center}
-@media(hover:hover) and (prefers-reduced-motion:no-preference){:where(main,header,footer,aside) :is(a,button,summary,li,p,dt,dd,label,small,strong,h1,h2,h3,figcaption,i,svg,img){transition:color .18s,background-color .18s,filter .18s,translate .18s,box-shadow .18s}:where(main,header,footer,aside) :is(p,li,dt,dd,label,small,strong,figcaption):hover{color:#794988;translate:0 -1px}.foot :is(p,a):hover{color:#ffdfab}.format-row article:nth-child(2) :is(p,li):hover{color:#ffe8ae}.journal a:hover i,.card-arrow:hover,.faq summary:hover:after{background:#ffd2aa;color:#613952}.fac-grid>.space-photo:hover{rotate:-1deg;filter:saturate(1.12)}}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){:where(main,header,footer,aside) :is(a,button,summary,li,p,dt,dd,label,small,strong,h1,h2,h3,figcaption,i,svg,img){transition:color .18s,background-color .18s,filter .18s,translate .18s,box-shadow .18s}.foot a:hover{color:#ffdfab}.journal a:hover i,.card-arrow:hover,.faq summary:hover:after{background:#ffd2aa;color:#613952}.fac-grid>.space-photo:hover{rotate:-1deg;filter:saturate(1.12)}}
 .rotator button.cyclebtn,.carousel .controls button{font-size:0;position:relative}.rotator button.cyclebtn,.services .controls button{position:absolute}.rotator button.cyclebtn:before,.carousel .controls button:before{content:'';display:block;width:8px;height:8px;box-sizing:border-box;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(135deg);margin-left:3px}.rotator button.next:before,.carousel .controls button:last-child:before{transform:rotate(-45deg);margin-left:-3px}.faq summary{align-items:center}.faq summary:after{font-family:Arial,sans-serif;font-weight:400;line-height:1}
 
 .fac-grid>.flight-illustration{display:block;width:min(100%,440px);height:auto;object-fit:contain;justify-self:center}
@@ -54,7 +54,7 @@
 #main :is(.controls button,.cyclebtn){padding:0;line-height:0;letter-spacing:0}
 #main :is(.faq summary,.btn,.controls button,.cyclebtn):hover{transform:none}
 @media(hover:hover){#main :is(.faq summary,.controls button,.cyclebtn):hover{box-shadow:0 2px 0 #bc9ecd,0 4px 12px #6a437325}
-#main :is(p,h2,h3,figcaption):hover{transform:none;color:#694776}}
+}
 @media(prefers-reduced-motion:reduce){.book-visible .book-leaf{animation:none}}
 
 .services{--control-fill:#ffdfa9;--control-glow:#fff1d6}.teachers{--control-fill:#dfcaf5;--control-glow:#f5eaff}.reviews-section{--control-fill:#bfe7d7;--control-glow:#e6f7ec}
@@ -63,8 +63,86 @@
 #main :is(.services,.teachers,.reviews-section) :is(.controls button,.cyclebtn):is(:hover,:focus-visible){background:#543767;color:white;box-shadow:inset 0 2px 0 #88639c,0 3px 0 #362340,0 5px 12px #67487744}
 @media(hover:hover) and (pointer:fine){
 :where(header,main,footer,aside) :where(p,small,label,li,figcaption,summary,span,h1,h2,h3,h4,strong,b,a,button,img,svg,input,textarea,select,figure,article){transition-property:color,background-color,box-shadow,opacity,transform,filter;transition-duration:.18s}
-:where(header,main,footer,aside) :where(p,small,label,li,figcaption,summary,span,h1,h2,h3,h4,strong,b):hover{text-shadow:0 1px 2px #9a65973d}
-:where(header,main,footer,aside) :where(img,svg):hover{filter:saturate(1.12) contrast(1.035)}
-:where(header,main,footer,aside) :where(a,button,input,textarea,select,article,figure):hover{box-shadow:0 3px 12px #67437824}
+
+
+
 }
 @media(prefers-reduced-motion:reduce){:where(header,main,footer,aside) *{transition-duration:0s}}
+
+/* Keep the arrow independent of the button's anonymous text/grid row. */
+#main .services .carousel .controls button{translate:none}
+#main .services .carousel .controls button:before{position:absolute;left:50%;top:50%;margin:0;transform:translate(-50%,-50%)}
+#main .services .carousel .controls button:last-child:before{transform:translate(-50%,-50%) rotate(180deg)}
+
+/* A shared photo stage turns adjacent faces while lesson copy crossfades. */
+.services .lesson-carousel .slides{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:35px}
+.services .lesson-carousel .slide{display:block;grid-area:1/1;min-width:0;opacity:0;visibility:hidden;pointer-events:none;background:transparent;box-shadow:none;transform:translateY(8px);animation:none;transition:opacity .55s ease,transform .65s ease,visibility 0s .65s}
+.services .lesson-carousel .slide.active{opacity:1;visibility:visible;pointer-events:auto;transform:none;transition-delay:0s}
+#main .services .lesson-carousel .slide :is(h3,p){text-shadow:none;filter:none;translate:none;transform:none}
+#main .services .lesson-carousel .slide h3{color:#352440}
+#main .services .lesson-carousel .slide p{color:#58475f}
+.services .lesson-visual{grid-area:1/2;position:relative;width:100%;aspect-ratio:1.29;border-radius:46px;perspective:1400px;min-width:0}
+.services .lesson-cube{position:absolute;inset:0;border-radius:inherit;transform-style:preserve-3d;transform:translateZ(calc(-1 * var(--cube-depth)))}
+.services .lesson-cube .lesson-face{position:absolute;inset:0;display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center;background:#fff9f2;border:0;border-radius:inherit;backface-visibility:hidden;transform:translateZ(var(--cube-depth));translate:none;transition:none;box-shadow:none}
+.services .lesson-cube .lesson-face[hidden]{display:none}
+@media(max-width:680px){
+  .services .lesson-carousel .slides{grid-template-columns:minmax(0,1fr);gap:24px}
+  .services .lesson-carousel .slide{grid-area:2/1}
+  .services .lesson-visual{grid-area:1/1;max-height:235px;border-radius:30px}
+}
+@media(prefers-reduced-motion:reduce){.services .lesson-carousel .slide{transition:none;transform:none}}
+
+/* Use the same SVG stroke and alignment for every interface icon. */
+header .ui-icon,#main .ui-icon{display:block;width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none;filter:none;translate:none;transform:none;transition:none}
+.toggle .icon-close{display:none}
+.toggle[aria-expanded=true] .icon-menu{display:none}
+.toggle[aria-expanded=true] .icon-close{display:block}
+#main .controls button:has(> .ui-icon):before,#main .rotator button.cyclebtn:has(> .ui-icon):before{content:none}
+#main :is(.controls button,.cyclebtn):has(> .ui-icon){display:grid;place-items:center}
+#main :is(.card-arrow,.go,.syllabus-row i,.lesson-invite .btn span[aria-hidden]):has(> .ui-icon){background-image:none;mask:none}
+#main .lesson-invite .btn span[aria-hidden]:has(> .ui-icon){background:none}
+#main .lesson-invite .btn span[aria-hidden] .ui-icon{width:18px;height:18px}
+#main .journal a>div>b:has(> .ui-icon){background-image:none}
+#main .journal a>div>b .ui-icon{width:28px;height:28px}
+#main .faq summary:has(> .faq-icon):after{content:none}
+.faq-icon{display:grid;place-items:center;flex:0 0 29px;width:29px;height:29px;margin-left:auto;border-radius:50%;background:#eedfff;color:#684286;box-shadow:0 2px 0 #cbb8d9}
+#main .faq-icon .ui-icon{width:17px;height:17px}
+.faq details[open]>summary .faq-icon{background:#ffb990;color:#543453}
+.faq details[open]>summary .icon-vertical{display:none}
+.faq summary:is(:hover,:focus-visible) .faq-icon{background:#ffdfbf}
+
+@media(min-width:751px){
+  .before-booking .wrap>div:first-child{position:sticky;top:99px;align-self:start}
+}
+
+/* Content determines the height; the grid keeps all principle cards equal. */
+#main .principles{background:#eee4fb}
+#main .principles .wrap>div{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:1fr;gap:18px;align-items:stretch}
+#main .principles .wrap article{display:flex;min-width:0;border-radius:24px;background:transparent;box-shadow:none}
+#main .principles .turncard{display:grid;flex:1;min-width:0;min-height:0;height:auto;border-radius:inherit}
+#main .principles .turncard>div{border:1px solid #60416c18;border-radius:inherit;box-shadow:0 6px 18px #4a2b6010}
+#main .principles .front{display:flex;flex-direction:column;grid-area:1/1;min-height:0;height:auto;padding:26px 24px;background:#edf3d8}
+#main .principles article:nth-child(2) .front{background:#ffebdc}
+#main .principles article:nth-child(3) .front{background:#fff3ce}
+#main .principles article:nth-child(4) .front{background:#f7e2ed}
+#main .principles h3{min-block-size:2.36em;margin:0 0 12px;font-size:clamp(22px,1.85vw,26px);line-height:1.18;text-wrap:pretty;color:#352440}
+#main .principles p{margin:0;font-size:16px;line-height:1.6;color:#58475f}
+#main .principles :is(h3,p){text-shadow:none;filter:none;translate:none;transform:none}
+#main .principles .back{background:#fffaf4}
+#main .principles .back img{border-radius:inherit;translate:none;filter:none}
+#main .principles .back b{left:16px;right:16px;bottom:16px;padding:10px 14px;border-radius:12px;background:#fffaf4ed;font:700 18px/1.25 SchoolHead;text-shadow:none;translate:none;transform:none}
+@media(max-width:920px){#main .principles .wrap>div{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){
+  #main .principles .wrap>div{grid-template-columns:minmax(0,1fr);gap:14px}
+  #main .principles .front{padding:24px}
+  #main .principles h3{min-block-size:0}
+}
+
+/* Detailed editorial photography and large, real stationery at the edges. */
+#main .outcomes .out-cover{aspect-ratio:3/2;min-height:0}
+#main .outcomes .out-cover img{opacity:1;object-fit:cover;object-position:center;image-rendering:auto}
+.outcomes>.wrap{position:relative;z-index:1}
+.outcomes:before,.outcomes:after{opacity:1;animation:none;pointer-events:none;background-repeat:no-repeat;background-size:contain;filter:none}
+.outcomes:before{background-image:url(stationery-notebook-photo.webp);width:clamp(180px,19vw,280px);height:clamp(220px,25vw,340px);top:-18px;left:-44px;rotate:-14deg}
+.outcomes:after{background-image:url(stationery-scissors-photo.webp);width:clamp(160px,17vw,250px);height:clamp(240px,29vw,390px);top:auto;bottom:-38px;right:-35px;left:auto;rotate:12deg}
+@media(max-width:750px){.outcomes:before,.outcomes:after{display:none}}
