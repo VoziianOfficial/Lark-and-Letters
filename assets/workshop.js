@@ -17,7 +17,7 @@ function activate(items,select){
 const photoTransitions=new WeakMap();
 async function photo(img,file,alt){
  if(!img)return;
- const src='assets/'+file+'.webp';
+ const src='assets/'+file+'.avif';
  let state=photoTransitions.get(img);
  if(!state){state={busy:false,pending:null};photoTransitions.set(img,state)}
  if(state.busy){state.pending={file,alt};return}
@@ -60,7 +60,7 @@ const layers=[...pictures].map((figure,j)=>{
  figure.querySelector('img').replaceWith(frame);
  return pairs.map((row,i)=>{
   const image=new Image();
-  image.src='assets/'+row[j]+'.webp';
+  image.src='assets/'+row[j]+'.avif';
   image.alt=row[j+2];
   image.classList.toggle('visible',i===0);
   frame.append(image);

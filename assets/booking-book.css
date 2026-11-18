@@ -57,7 +57,7 @@
   inset:0;
   backface-visibility:hidden;
   clip-path:polygon(0 5%,15% 1%,45% 0,74% 0,100% 3%,100% 98%,65% 97%,30% 97%,0 100%);
-  background:#f5ead3 url(booking-book-real.webp) 84.175% 51.4%/246.3% 126.58% no-repeat;
+  background:#f5ead3 url(booking-book-real.avif) 84.175% 51.4%/246.3% 126.58% no-repeat;
 }
 .booking-book .book-side:after{
   content:'';

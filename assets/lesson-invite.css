@@ -13,9 +13,9 @@
   background-repeat:no-repeat;
   box-shadow:0 8px 28px #4a32490a;
 }
-.invite-language{--invite-photo:url(invite-language-photo.webp)}
-.invite-creative-arts{--invite-photo:url(invite-creative-arts-photo.webp)}
-.invite-math-science{--invite-photo:url(invite-math-science-photo.webp)}
+.invite-language{--invite-photo:url(invite-language-photo.avif)}
+.invite-creative-arts{--invite-photo:url(invite-creative-arts-photo.avif)}
+.invite-math-science{--invite-photo:url(invite-math-science-photo.avif)}
 #main .lesson-invite .wrap:before{
   content:'';
   inset:0;
