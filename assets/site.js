@@ -158,8 +158,6 @@ policy.querySelector('button').onclick=async event=>{
  policy.hidden=true;
 };
 if(!reducing){
- const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('seen');observer.unobserve(entry.target)}}),{threshold:.09});
- all('section:not(.hero)>.wrap').forEach(el=>observer.observe(el));
  const hero=one('.service-scene .portrait');let queued=false;
  if(hero){
   const desktopHero=matchMedia('(min-width:1200px)');

@@ -17,9 +17,3 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.inert){openS
 document.addEventListener('click',e=>{if(!subjectNav.contains(e.target))openSubjects(false)});
 subjectNav.addEventListener('focusout',e=>{if(!subjectNav.contains(e.relatedTarget))openSubjects(false)});
 hoverMenu.addEventListener('change',()=>openSubjects(false));
-if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
- const reveal=new IntersectionObserver(entries=>entries.forEach(entry=>{
-  if(entry.isIntersecting){entry.target.classList.add('ink-reveal');reveal.unobserve(entry.target)}
- }),{threshold:.2});
- document.querySelectorAll('main h1,main h2,main h3').forEach(heading=>reveal.observe(heading));
-}
