@@ -1,6 +1,16 @@
 const one = selector => document.querySelector(selector);
 const all = selector => [...document.querySelectorAll(selector)];
-const config = Promise.resolve(window.SITE_CONFIG);
+// PHP reads this same file for every submission. Bypass browser/CDN caches so a
+// changed recipient is also reflected in the email links after a page reload.
+const config = location.protocol === 'file:' ? Promise.resolve(window.SITE_CONFIG) :
+  fetch('site-config.php', {cache:'no-store',headers:{Accept:'application/json'}}).then(async response => {
+    // Keep static previews usable; sending the form still requires PHP hosting.
+    if(response.status===404 || (response.ok&&!response.headers.get('content-type')?.includes('application/json')))return window.SITE_CONFIG;
+    if(!response.ok)throw Error('Site configuration is unavailable.');
+    const site=await response.json();
+    window.SITE_CONFIG=site;
+    return site;
+  });
 config.then(site => {
   const fill = (selector,value) => all(selector).forEach(el => el.textContent=value);
   fill('[data-name]',site.name);
@@ -176,8 +186,18 @@ if(form){
  form.addEventListener('submit',async e=>{
   e.preventDefault();const button=form.querySelector('button'),status=form.querySelector('[role=status]');
   if(button.disabled)return;button.disabled=true;status.textContent='Sending…';
-  try{const site=await config;const response=await fetch(site.form.endpoint,{method:'POST',body:new FormData(form)});const data=await response.json();if(!response.ok||data.ok!==true)throw Error();status.textContent=site.form.success;form.reset()}
-  catch{status.textContent='We could not send your request. Your message is still here. Please try again or contact us by email.'}
+  try{
+   const site=await config;
+   const response=await fetch(site.form.endpoint,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'},cache:'no-store'});
+   const data=await response.json();
+   if(!response.ok||data.ok!==true){
+    status.textContent=typeof data.message==='string'?data.message:'We could not send your request. Please try again or contact us by email.';
+    return;
+   }
+   status.textContent=data.message||site.form.success;
+   form.reset();
+  }
+  catch{status.textContent='We could not confirm sending your request. Your message is still here. Please try again or contact us by email.'}
   finally{button.disabled=false}
  });
 }

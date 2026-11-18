@@ -1,0 +1,4 @@
+# Only the public site config should be downloadable from this directory.
+<FilesMatch "^(?!config\.js$)">
+    Require all denied
+</FilesMatch>
